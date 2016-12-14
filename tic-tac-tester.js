@@ -30,6 +30,7 @@ var testsRun = 0
 var testsPassed = 0
 var testsFailed = 0
 
+
 // TESTS TO RUN
 console.log('==================================')
 console.log('RUNNING TIC TAC TESTER')
@@ -71,6 +72,9 @@ function simulateGame (testTitle, moves, winner) {
   for (var i = 0; i < moves.length; ++i) {
     expect('playTurn should allow move to ' + moves[i], playTurn(moves[i]), true)
     expect('playTurn should not allow move to same square', playTurn(moves[0]), false)
+    if (i < moves.length - 2 ) {
+      expect('whoWon should return 0', whoWon(), 0)
+    }
   }
 
   expect('playTurn should not allow move after gameover', playTurn(moves[0]), false)
